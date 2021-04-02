@@ -1,4 +1,4 @@
-public class CreditCardStrategy {
+public class CreditCardStrategy implements PaymentStrategy {
     private String name;
     private String cardNumber;
     private String cvv;
