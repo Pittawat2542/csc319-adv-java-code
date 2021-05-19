@@ -15,14 +15,18 @@ public class Question2 {
         });
 
         System.out.println(sortedWords.get(0));
+
+        int wordCount = processFile(words -> words).size();
+
+        System.out.println(wordCount);
     }
 
     public static List<String> processFile(UnaryOperator<List<String>> operator) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get("call_of_the_wild.txt"), StandardCharsets.UTF_8);
 
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         for (String line : lines) {
-            String preprocessedLine = line.strip().toLowerCase().replaceAll("[,.]", "");
+            String preprocessedLine = line.strip().replaceAll("[,.]", "");
             if (preprocessedLine.length() > 0)
                 stringBuilder.append(preprocessedLine).append(" ");
         }
